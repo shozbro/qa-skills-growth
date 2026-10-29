@@ -1,10 +1,15 @@
 {
   "skill": "L6",
   "name": "Penetration testing",
+  "learn": [
+    "https://owasp.org/www-project-top-ten/",
+    "https://portswigger.net/web-security"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Which is on the OWASP Top 10 list?",
+      "level": "beginner",
       "options": [
         "Broken Access Control",
         "Slow page load",
@@ -16,6 +21,7 @@
     },
     {
       "q": "What best prevents SQL injection?",
+      "level": "intermediate",
       "options": [
         "Hiding the form",
         "Parameterized queries",
@@ -27,6 +33,7 @@
     },
     {
       "q": "IDOR (insecure direct object reference) means:",
+      "level": "intermediate",
       "options": [
         "A user can access another user's object by changing an id",
         "A slow query",
@@ -38,6 +45,7 @@
     },
     {
       "q": "Before running a ZAP active scan you must:",
+      "level": "beginner",
       "options": [
         "Nothing",
         "Have explicit permission and use an environment you are allowed to test",
@@ -49,6 +57,7 @@
     },
     {
       "q": "What is OWASP ZAP primarily?",
+      "level": "beginner",
       "options": [
         "A text editor",
         "An intercepting proxy and web security scanner",
@@ -57,6 +66,90 @@
       ],
       "answer": 1,
       "why": "It sits between browser and app to inspect and attack-test traffic."
+    },
+    {
+      "q": "What is cross-site scripting (XSS)?",
+      "level": "beginner",
+      "options": [
+        "Injecting scripts into pages that other users load",
+        "A slow query",
+        "A weak password",
+        "A DNS record"
+      ],
+      "answer": 0,
+      "why": "Output encoding and CSP help prevent it."
+    },
+    {
+      "q": "What is CSRF?",
+      "level": "intermediate",
+      "options": [
+        "Forcing a logged-in user's browser to send an unwanted request",
+        "A database error",
+        "A CSS framework",
+        "A cache"
+      ],
+      "answer": 0,
+      "why": "Anti-CSRF tokens and SameSite cookies mitigate it."
+    },
+    {
+      "q": "What does a Content-Security-Policy header do?",
+      "level": "intermediate",
+      "options": [
+        "Speeds up pages",
+        "Restricts which sources scripts and other content may load from",
+        "Encrypts the page",
+        "Blocks cookies"
+      ],
+      "answer": 1,
+      "why": "It limits the impact of XSS."
+    },
+    {
+      "q": "Horizontal vs vertical privilege escalation:",
+      "level": "intermediate",
+      "options": [
+        "Same",
+        "Horizontal: access another user's data at the same level; vertical: gain higher privileges",
+        "Horizontal: admin; vertical: user",
+        "Only for databases"
+      ],
+      "answer": 1,
+      "why": "IDOR is typically horizontal."
+    },
+    {
+      "q": "What is SSRF?",
+      "level": "advanced",
+      "options": [
+        "Tricking the server into making requests to internal or unintended targets",
+        "A browser plugin",
+        "A password policy",
+        "A CDN"
+      ],
+      "answer": 0,
+      "why": "Cloud metadata endpoints are a classic target."
+    },
+    {
+      "q": "Why must a server verify JWT signatures and the expected algorithm?",
+      "level": "advanced",
+      "options": [
+        "For speed",
+        "Otherwise attackers can forge or alter tokens",
+        "JWTs are always safe",
+        "To save storage"
+      ],
+      "answer": 1,
+      "why": "Never trust unsigned or unexpected-alg tokens."
+    },
+    {
+      "q": "What helps reduce credential brute-forcing on login?",
+      "level": "advanced",
+      "options": [
+        "Longer error messages",
+        "Rate limiting, lockouts or MFA",
+        "Showing which field is wrong",
+        "Removing logs"
+      ],
+      "answer": 1,
+      "why": "Combine with monitoring."
     }
   ]
 }

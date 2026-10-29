@@ -1,10 +1,15 @@
 {
   "skill": "D",
   "name": "API testing automation and Python",
+  "learn": [
+    "https://docs.pytest.org/en/stable/getting-started.html",
+    "https://requests.readthedocs.io/en/latest/"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Which decorator defines a reusable pytest fixture?",
+      "level": "beginner",
       "options": [
         "@pytest.setup",
         "@pytest.fixture",
@@ -16,6 +21,7 @@
     },
     {
       "q": "Which decorator runs one test with many input sets?",
+      "level": "intermediate",
       "options": [
         "@pytest.mark.parametrize",
         "@pytest.repeat",
@@ -27,6 +33,7 @@
     },
     {
       "q": "A good negative test for a protected endpoint is:",
+      "level": "intermediate",
       "options": [
         "Call it with a valid token and expect 200",
         "Call it with no token and expect 401",
@@ -38,6 +45,7 @@
     },
     {
       "q": "What is the difference between 401 and 403?",
+      "level": "intermediate",
       "options": [
         "None",
         "401: not authenticated; 403: authenticated but not allowed",
@@ -49,6 +57,7 @@
     },
     {
       "q": "With the requests library, how do you read a JSON body?",
+      "level": "beginner",
       "options": [
         "response.text.json",
         "response.json()",
@@ -60,6 +69,7 @@
     },
     {
       "q": "Which approach checks a response structure against a defined schema?",
+      "level": "intermediate",
       "options": [
         "Compare the raw string",
         "jsonschema validate()",
@@ -71,6 +81,7 @@
     },
     {
       "q": "What does a pytest fixture with scope=\"session\" do?",
+      "level": "intermediate",
       "options": [
         "Runs before every test",
         "Is created once for the whole test run",
@@ -82,6 +93,7 @@
     },
     {
       "q": "Which status code normally means a resource was created?",
+      "level": "beginner",
       "options": [
         "200",
         "201",
@@ -93,6 +105,7 @@
     },
     {
       "q": "Which HTTP method is NOT idempotent by default?",
+      "level": "advanced",
       "options": [
         "GET",
         "PUT",
@@ -104,6 +117,7 @@
     },
     {
       "q": "What happens with def add(x, items=[]): items.append(x); return items?",
+      "level": "advanced",
       "options": [
         "A fresh list on every call",
         "The same list is reused across calls",
@@ -112,6 +126,222 @@
       ],
       "answer": 1,
       "why": "Default values are evaluated once. Use None and create the list inside."
+    },
+    {
+      "q": "What is an API?",
+      "level": "beginner",
+      "options": [
+        "A database",
+        "A defined way for programs to talk to each other",
+        "A browser",
+        "A test report"
+      ],
+      "answer": 1,
+      "why": "Over HTTP, requests and responses follow a contract."
+    },
+    {
+      "q": "What is a GET request normally used for?",
+      "level": "beginner",
+      "options": [
+        "Reading data",
+        "Creating data",
+        "Deleting data",
+        "Uploading files only"
+      ],
+      "answer": 0,
+      "why": "GET should not change server state."
+    },
+    {
+      "q": "What is JSON?",
+      "level": "beginner",
+      "options": [
+        "A programming language",
+        "A text format for structured data",
+        "A database",
+        "A web server"
+      ],
+      "answer": 1,
+      "why": "Keys and values, arrays and nested objects."
+    },
+    {
+      "q": "What does status 404 mean?",
+      "level": "beginner",
+      "options": [
+        "Server error",
+        "Resource not found",
+        "Created",
+        "Unauthorized"
+      ],
+      "answer": 1,
+      "why": "The URL or id does not exist."
+    },
+    {
+      "q": "What does status 200 mean?",
+      "level": "beginner",
+      "options": [
+        "Success",
+        "Redirect",
+        "Client error",
+        "Server error"
+      ],
+      "answer": 0,
+      "why": "The request succeeded."
+    },
+    {
+      "q": "Where is an API token normally sent?",
+      "level": "beginner",
+      "options": [
+        "In the Authorization header",
+        "In the status code",
+        "In the user-agent only",
+        "In the response"
+      ],
+      "answer": 0,
+      "why": "For example Authorization: Bearer <token>."
+    },
+    {
+      "q": "What does the assert statement do in a test?",
+      "level": "beginner",
+      "options": [
+        "Prints a message",
+        "Fails the test if the condition is false",
+        "Skips the test",
+        "Retries it"
+      ],
+      "answer": 1,
+      "why": "pytest shows the evaluated values on failure."
+    },
+    {
+      "q": "In requests, how do you send a JSON body?",
+      "level": "intermediate",
+      "options": [
+        "requests.post(url, json=payload)",
+        "requests.post(url, body=payload)",
+        "requests.json(url)",
+        "requests.send(payload)"
+      ],
+      "answer": 0,
+      "why": "The json= argument serialises and sets the content type."
+    },
+    {
+      "q": "What is conftest.py for?",
+      "level": "intermediate",
+      "options": [
+        "Test data",
+        "Shared fixtures and hooks available to tests in that folder tree",
+        "Documentation",
+        "Linting"
+      ],
+      "answer": 1,
+      "why": "pytest picks it up automatically."
+    },
+    {
+      "q": "Why pass timeout= to requests calls?",
+      "level": "intermediate",
+      "options": [
+        "It speeds up the server",
+        "Without it a call can hang indefinitely",
+        "It adds retries",
+        "It is required for HTTPS"
+      ],
+      "answer": 1,
+      "why": "requests has no default timeout."
+    },
+    {
+      "q": "What does response.raise_for_status() do?",
+      "level": "intermediate",
+      "options": [
+        "Prints the status",
+        "Raises an exception for 4xx and 5xx responses",
+        "Retries the request",
+        "Closes the session"
+      ],
+      "answer": 1,
+      "why": "A quick way to fail fast on error responses."
+    },
+    {
+      "q": "Which marker skips a test with a reason?",
+      "level": "intermediate",
+      "options": [
+        "@pytest.mark.skip(reason=...)",
+        "@pytest.hide",
+        "@pytest.ignore",
+        "@pytest.mark.pass"
+      ],
+      "answer": 0,
+      "why": "xfail marks an expected failure instead."
+    },
+    {
+      "q": "In a fixture, what does yield provide?",
+      "level": "advanced",
+      "options": [
+        "A return value only",
+        "A point to run teardown code after the test",
+        "Parallelism",
+        "Retries"
+      ],
+      "answer": 1,
+      "why": "Code after yield runs as cleanup."
+    },
+    {
+      "q": "What is a factory fixture?",
+      "level": "advanced",
+      "options": [
+        "A fixture that returns a function so tests can create several objects",
+        "A fixture that builds the server",
+        "A fixture for databases only",
+        "A deprecated feature"
+      ],
+      "answer": 0,
+      "why": "Handy when a test needs many users or records."
+    },
+    {
+      "q": "A flood of requests returns 429. What does it mean?",
+      "level": "advanced",
+      "options": [
+        "Not found",
+        "Too many requests; you were rate limited",
+        "Server crashed",
+        "Conflict"
+      ],
+      "answer": 1,
+      "why": "Look for a Retry-After header."
+    },
+    {
+      "q": "Which is a good pagination test?",
+      "level": "advanced",
+      "options": [
+        "Only check page 1",
+        "Check first, middle and last pages, page size limits and an out-of-range page",
+        "Check status codes only",
+        "Skip it"
+      ],
+      "answer": 1,
+      "why": "Boundary pages are where off-by-one bugs live."
+    },
+    {
+      "q": "Creating a record that already exists with a unique key often returns:",
+      "level": "advanced",
+      "options": [
+        "200",
+        "409 Conflict",
+        "301",
+        "204"
+      ],
+      "answer": 1,
+      "why": "409 signals a state conflict."
+    },
+    {
+      "q": "How do you test your code against a third-party API that you cannot call in CI?",
+      "level": "advanced",
+      "options": [
+        "Skip the test",
+        "Mock the HTTP layer (for example unittest.mock or the responses library)",
+        "Call production",
+        "Hard-code results in the app"
+      ],
+      "answer": 1,
+      "why": "Mocks give repeatable responses, but also add a contract test against the real API sometimes."
     }
   ]
 }

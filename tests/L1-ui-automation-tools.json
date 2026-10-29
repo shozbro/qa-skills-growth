@@ -1,10 +1,14 @@
 {
   "skill": "L1",
   "name": "Playwright, Selenium, Cypress",
+  "learn": [
+    "https://playwright.dev/docs/intro"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "What does Playwright's auto-waiting do?",
+      "level": "beginner",
       "options": [
         "Waits a fixed 30 seconds",
         "Waits for elements to be actionable before acting",
@@ -16,6 +20,7 @@
     },
     {
       "q": "Which Playwright locator style is generally recommended first?",
+      "level": "intermediate",
       "options": [
         "Absolute XPath",
         "getByRole / user-facing locators",
@@ -27,6 +32,7 @@
     },
     {
       "q": "In Selenium, which is better than time.sleep() for waiting?",
+      "level": "beginner",
       "options": [
         "Longer sleeps",
         "Explicit waits (WebDriverWait with expected conditions)",
@@ -38,6 +44,7 @@
     },
     {
       "q": "Which command records actions into Playwright test code?",
+      "level": "beginner",
       "options": [
         "npx playwright record",
         "npx playwright codegen",
@@ -49,6 +56,7 @@
     },
     {
       "q": "How does Playwright keep tests isolated from each other?",
+      "level": "intermediate",
       "options": [
         "Shared cookies",
         "A new browser context per test",
@@ -57,6 +65,90 @@
       ],
       "answer": 1,
       "why": "Each test gets a fresh context, with its own storage."
+    },
+    {
+      "q": "What is a flaky test?",
+      "level": "beginner",
+      "options": [
+        "A test that sometimes passes and sometimes fails without any code change",
+        "A slow test",
+        "A test with no assertions",
+        "A test that always fails"
+      ],
+      "answer": 0,
+      "why": "Flakiness erodes trust in the suite."
+    },
+    {
+      "q": "Why are web-first assertions like expect(locator).toBeVisible() preferred in Playwright?",
+      "level": "intermediate",
+      "options": [
+        "They are shorter",
+        "They retry until the condition is met or time runs out",
+        "They skip waiting",
+        "They use XPath"
+      ],
+      "answer": 1,
+      "why": "They remove most manual waits."
+    },
+    {
+      "q": "What is the Page Object Model for?",
+      "level": "intermediate",
+      "options": [
+        "Faster browsers",
+        "Keeping locators and page actions in one place so tests are easier to maintain",
+        "Generating test data",
+        "Reporting"
+      ],
+      "answer": 1,
+      "why": "A UI change then needs fixing in one class."
+    },
+    {
+      "q": "In Cypress, what happens when cy.get() cannot find an element immediately?",
+      "level": "intermediate",
+      "options": [
+        "Fails instantly",
+        "It retries until the timeout",
+        "It refreshes the page",
+        "It skips"
+      ],
+      "answer": 1,
+      "why": "Built-in retry-ability applies to queries and assertions."
+    },
+    {
+      "q": "What does page.route() allow in Playwright?",
+      "level": "advanced",
+      "options": [
+        "Navigating pages",
+        "Intercepting and mocking network requests",
+        "Changing the URL bar",
+        "Recording video"
+      ],
+      "answer": 1,
+      "why": "Useful to simulate errors and slow responses."
+    },
+    {
+      "q": "What is storageState used for?",
+      "level": "advanced",
+      "options": [
+        "Test timing",
+        "Reusing a logged-in session across tests so each does not log in again",
+        "Saving screenshots",
+        "Cache cleaning"
+      ],
+      "answer": 1,
+      "why": "Log in once in setup, reuse the saved cookies and storage."
+    },
+    {
+      "q": "What does test.extend() do in Playwright Test?",
+      "level": "advanced",
+      "options": [
+        "Extends timeouts",
+        "Creates custom fixtures",
+        "Adds browsers",
+        "Runs tests twice"
+      ],
+      "answer": 1,
+      "why": "Custom fixtures give tests shared setup."
     }
   ]
 }

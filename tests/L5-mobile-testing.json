@@ -1,10 +1,14 @@
 {
   "skill": "L5",
   "name": "Mobile app testing and automation",
+  "learn": [
+    "https://appium.io/docs/en/latest/"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Appium drives apps using which protocol style?",
+      "level": "intermediate",
       "options": [
         "WebDriver protocol",
         "SOAP",
@@ -16,6 +20,7 @@
     },
     {
       "q": "Which Appium driver targets Android?",
+      "level": "intermediate",
       "options": [
         "XCUITest",
         "UiAutomator2",
@@ -27,6 +32,7 @@
     },
     {
       "q": "Which locator is usually most stable on mobile?",
+      "level": "intermediate",
       "options": [
         "Absolute XPath",
         "Accessibility id",
@@ -38,6 +44,7 @@
     },
     {
       "q": "Which scenario is specific to mobile testing?",
+      "level": "beginner",
       "options": [
         "Browser zoom",
         "Incoming call or notification during use",
@@ -49,6 +56,7 @@
     },
     {
       "q": "Why test on real devices as well as emulators?",
+      "level": "beginner",
       "options": [
         "Emulators are illegal",
         "Real devices expose hardware, performance and OEM differences",
@@ -57,6 +65,90 @@
       ],
       "answer": 1,
       "why": "Emulators miss some real-world behaviour."
+    },
+    {
+      "q": "What are APK and IPA files?",
+      "level": "beginner",
+      "options": [
+        "Test reports",
+        "Android and iOS app packages",
+        "Browsers",
+        "Databases"
+      ],
+      "answer": 1,
+      "why": "APK for Android, IPA for iOS."
+    },
+    {
+      "q": "Which permission check belongs in mobile tests?",
+      "level": "beginner",
+      "options": [
+        "None",
+        "Allow and deny the permission prompt and confirm the app handles both",
+        "Only allow",
+        "Only deny"
+      ],
+      "answer": 1,
+      "why": "Users may refuse camera, location or notifications."
+    },
+    {
+      "q": "In Appium, what do capabilities/options define?",
+      "level": "intermediate",
+      "options": [
+        "Test results",
+        "The platform, device, app and automation driver for the session",
+        "Colours",
+        "Network speed"
+      ],
+      "answer": 1,
+      "why": "They tell the server what session to start."
+    },
+    {
+      "q": "What does adb devices show?",
+      "level": "intermediate",
+      "options": [
+        "Installed apps",
+        "Connected Android devices and emulators",
+        "Network speed",
+        "App logs"
+      ],
+      "answer": 1,
+      "why": "If your device is missing there, Appium cannot reach it."
+    },
+    {
+      "q": "What is Appium Inspector for?",
+      "level": "advanced",
+      "options": [
+        "Running CI",
+        "Inspecting the app's element tree to build locators",
+        "Reporting bugs",
+        "Profiling battery"
+      ],
+      "answer": 1,
+      "why": "It shows ids, accessibility labels and hierarchy."
+    },
+    {
+      "q": "Why plan an OS version and device matrix?",
+      "level": "advanced",
+      "options": [
+        "It is optional",
+        "Behaviour differs across OS versions, screen sizes and manufacturers",
+        "To slow down testing",
+        "Only iOS has it"
+      ],
+      "answer": 1,
+      "why": "Pick versions by your user analytics."
+    },
+    {
+      "q": "Which is the most reliable way to automate swipes and gestures on modern Appium?",
+      "level": "advanced",
+      "options": [
+        "Pixel coordinates always",
+        "W3C actions with element-relative positions where possible",
+        "Sleep and tap",
+        "Manual testing only"
+      ],
+      "answer": 1,
+      "why": "Coordinates break across screen sizes."
     }
   ]
 }

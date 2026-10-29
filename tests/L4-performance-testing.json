@@ -1,10 +1,14 @@
 {
   "skill": "L4",
   "name": "Performance testing",
+  "learn": [
+    "https://grafana.com/docs/k6/latest/"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "What does p95 response time mean?",
+      "level": "intermediate",
       "options": [
         "The average time",
         "95% of requests were at or below this time",
@@ -16,6 +20,7 @@
     },
     {
       "q": "Load testing vs stress testing:",
+      "level": "beginner",
       "options": [
         "Same thing",
         "Load: expected traffic; stress: beyond capacity to find the breaking point",
@@ -27,6 +32,7 @@
     },
     {
       "q": "Throughput measures:",
+      "level": "beginner",
       "options": [
         "Time per request",
         "Requests handled per unit time",
@@ -38,6 +44,7 @@
     },
     {
       "q": "In k6, how do you make a run fail automatically when p95 is too slow?",
+      "level": "intermediate",
       "options": [
         "Add thresholds in options",
         "Watch the console",
@@ -49,6 +56,7 @@
     },
     {
       "q": "Why record a baseline before changes?",
+      "level": "beginner",
       "options": [
         "To satisfy a template",
         "So later results can be compared against a known reference",
@@ -57,6 +65,90 @@
       ],
       "answer": 1,
       "why": "Without a baseline you cannot tell if performance regressed."
+    },
+    {
+      "q": "What is a virtual user (VU)?",
+      "level": "beginner",
+      "options": [
+        "A real customer",
+        "A simulated concurrent user in a load test",
+        "A server",
+        "A test case"
+      ],
+      "answer": 1,
+      "why": "VUs run the script in parallel."
+    },
+    {
+      "q": "What is the purpose of ramp-up?",
+      "level": "intermediate",
+      "options": [
+        "To warm coffee",
+        "To increase load gradually so the system is not hit instantly",
+        "To skip results",
+        "To reduce errors in code"
+      ],
+      "answer": 1,
+      "why": "It makes problems easier to attribute."
+    },
+    {
+      "q": "Why can averages hide problems?",
+      "level": "intermediate",
+      "options": [
+        "They are always wrong",
+        "A few very slow requests barely move the mean but hurt real users",
+        "They ignore errors",
+        "They need more data"
+      ],
+      "answer": 1,
+      "why": "Look at percentiles like p95 and p99."
+    },
+    {
+      "q": "Why should the test environment resemble production?",
+      "level": "intermediate",
+      "options": [
+        "It should not",
+        "Results from very different hardware or data do not predict production",
+        "To save money",
+        "To avoid threshold checks"
+      ],
+      "answer": 1,
+      "why": "Data size and config affect performance."
+    },
+    {
+      "q": "What does a soak test look for?",
+      "level": "advanced",
+      "options": [
+        "Maximum spike",
+        "Problems that appear over long periods such as memory leaks",
+        "Syntax errors",
+        "UI bugs"
+      ],
+      "answer": 1,
+      "why": "It runs moderate load for hours."
+    },
+    {
+      "q": "How do you find the bottleneck during a load test?",
+      "level": "advanced",
+      "options": [
+        "Guess",
+        "Correlate response times with server metrics such as CPU, memory, database and connection pools",
+        "Add more VUs only",
+        "Read the code only"
+      ],
+      "answer": 1,
+      "why": "Client numbers show the symptom; server metrics show the cause."
+    },
+    {
+      "q": "What is coordinated omission?",
+      "level": "advanced",
+      "options": [
+        "A reporting template",
+        "A load generator that waits for a slow response and so under-records the latency users would have seen",
+        "A kind of caching",
+        "A security issue"
+      ],
+      "answer": 1,
+      "why": "It can make tail latencies look better than they are."
     }
   ]
 }

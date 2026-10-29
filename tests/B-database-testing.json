@@ -1,10 +1,15 @@
 {
   "skill": "B",
   "name": "Database testing",
+  "learn": [
+    "https://www.postgresql.org/docs/current/tutorial.html",
+    "https://sqlbolt.com/"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Which query finds duplicate cms_id values?",
+      "level": "intermediate",
       "options": [
         "SELECT cms_id FROM t WHERE COUNT(*) > 1",
         "SELECT cms_id, COUNT(*) FROM t GROUP BY cms_id HAVING COUNT(*) > 1",
@@ -16,6 +21,7 @@
     },
     {
       "q": "What is the difference between WHERE and HAVING?",
+      "level": "beginner",
       "options": [
         "None",
         "WHERE filters rows before grouping; HAVING filters groups after aggregation",
@@ -27,6 +33,7 @@
     },
     {
       "q": "Find child rows whose parent_id points to no existing parent. Which pattern?",
+      "level": "intermediate",
       "options": [
         "INNER JOIN parent ... WHERE p.id IS NOT NULL",
         "LEFT JOIN parent p ON c.parent_id = p.id WHERE p.id IS NULL",
@@ -38,6 +45,7 @@
     },
     {
       "q": "Which condition correctly finds rows where config is missing?",
+      "level": "beginner",
       "options": [
         "config = NULL",
         "config == NULL",
@@ -49,6 +57,7 @@
     },
     {
       "q": "What does COUNT(col) do differently from COUNT(*)?",
+      "level": "beginner",
       "options": [
         "Nothing",
         "COUNT(col) skips rows where col is NULL",
@@ -60,6 +69,7 @@
     },
     {
       "q": "What does an INNER JOIN return?",
+      "level": "beginner",
       "options": [
         "All rows from the left table",
         "Only rows with a match in both tables",
@@ -71,6 +81,7 @@
     },
     {
       "q": "Why can NOT IN (subquery) return no rows when the subquery contains a NULL?",
+      "level": "advanced",
       "options": [
         "It is a bug in the database",
         "Comparisons with NULL are unknown, so no row can satisfy NOT IN",
@@ -82,6 +93,7 @@
     },
     {
       "q": "Which expression numbers duplicates within each cms_id so you can pick the extra copies?",
+      "level": "advanced",
       "options": [
         "RANK() OVER (ORDER BY id)",
         "ROW_NUMBER() OVER (PARTITION BY cms_id ORDER BY id)",
@@ -93,6 +105,7 @@
     },
     {
       "q": "For checks run against a shared test environment, what is the safest practice?",
+      "level": "beginner",
       "options": [
         "Use an admin account for speed",
         "Run SELECT-only queries, ideally with a read-only database user",
@@ -104,6 +117,7 @@
     },
     {
       "q": "In PostgreSQL, which expression reads a JSON field as text so you can test it for NULL? (assumes PostgreSQL)",
+      "level": "intermediate",
       "options": [
         "settings->>'key' IS NULL",
         "settings.key IS NULL",
@@ -112,6 +126,222 @@
       ],
       "answer": 0,
       "why": "->> returns text; ->  returns json. Confirm your actual database engine before using."
+    },
+    {
+      "q": "What does SELECT do?",
+      "level": "beginner",
+      "options": [
+        "Deletes rows",
+        "Reads columns from tables",
+        "Creates tables",
+        "Grants access"
+      ],
+      "answer": 1,
+      "why": "SELECT retrieves data."
+    },
+    {
+      "q": "What does ORDER BY do?",
+      "level": "beginner",
+      "options": [
+        "Filters rows",
+        "Sorts the result",
+        "Groups rows",
+        "Joins tables"
+      ],
+      "answer": 1,
+      "why": "Add DESC for descending order."
+    },
+    {
+      "q": "What does LIMIT 10 do?",
+      "level": "beginner",
+      "options": [
+        "Returns at most 10 rows",
+        "Deletes 10 rows",
+        "Limits columns to 10",
+        "Locks the table"
+      ],
+      "answer": 0,
+      "why": "It caps the number of returned rows. (PostgreSQL and MySQL syntax.)"
+    },
+    {
+      "q": "What is a primary key?",
+      "level": "beginner",
+      "options": [
+        "A column that uniquely identifies each row",
+        "Any indexed column",
+        "A password",
+        "A column that allows duplicates"
+      ],
+      "answer": 0,
+      "why": "It must be unique and not null."
+    },
+    {
+      "q": "What is a foreign key?",
+      "level": "beginner",
+      "options": [
+        "A column that references the primary key of another table",
+        "A second primary key",
+        "An encrypted column",
+        "A temp column"
+      ],
+      "answer": 0,
+      "why": "It links rows between tables and can enforce referential integrity."
+    },
+    {
+      "q": "How does a LEFT JOIN differ from an INNER JOIN?",
+      "level": "intermediate",
+      "options": [
+        "No difference",
+        "LEFT keeps all left rows even without a match",
+        "LEFT keeps only unmatched rows",
+        "LEFT sorts rows"
+      ],
+      "answer": 1,
+      "why": "Unmatched right-side columns come back as NULL."
+    },
+    {
+      "q": "What does GROUP BY category_id with COUNT(*) return?",
+      "level": "intermediate",
+      "options": [
+        "One total",
+        "The number of rows for each category_id",
+        "Distinct ids only",
+        "All rows"
+      ],
+      "answer": 1,
+      "why": "One output row per group."
+    },
+    {
+      "q": "What does SELECT DISTINCT name do?",
+      "level": "intermediate",
+      "options": [
+        "Sorts names",
+        "Returns unique name values",
+        "Deletes duplicates from the table",
+        "Counts names"
+      ],
+      "answer": 1,
+      "why": "It only affects the result, not stored data."
+    },
+    {
+      "q": "Is BETWEEN 1 AND 5 inclusive?",
+      "level": "intermediate",
+      "options": [
+        "No, exclusive",
+        "Yes, both ends included",
+        "Only the lower end",
+        "Only the upper end"
+      ],
+      "answer": 1,
+      "why": "1 and 5 both match."
+    },
+    {
+      "q": "What does LIKE 'abc%' match?",
+      "level": "intermediate",
+      "options": [
+        "Strings ending in abc",
+        "Strings starting with abc",
+        "Strings containing abc only in the middle",
+        "Exactly abc"
+      ],
+      "answer": 1,
+      "why": "% matches any run of characters."
+    },
+    {
+      "q": "What does COALESCE(a, 'n/a') return?",
+      "level": "intermediate",
+      "options": [
+        "Always a",
+        "The first non-NULL argument",
+        "NULL",
+        "An error"
+      ],
+      "answer": 1,
+      "why": "Useful for readable reports with NULLs."
+    },
+    {
+      "q": "UNION vs UNION ALL:",
+      "level": "intermediate",
+      "options": [
+        "Same",
+        "UNION removes duplicate rows; UNION ALL keeps them",
+        "UNION ALL removes duplicates",
+        "UNION is faster always"
+      ],
+      "answer": 1,
+      "why": "UNION ALL skips the dedupe step."
+    },
+    {
+      "q": "Why can EXISTS be preferable to IN with a subquery that may return NULL?",
+      "level": "advanced",
+      "options": [
+        "It is shorter",
+        "It tests for matching rows and is not tripped up by NULLs the way NOT IN is",
+        "It sorts results",
+        "It uses no index"
+      ],
+      "answer": 1,
+      "why": "NOT EXISTS is the safe form for anti-joins."
+    },
+    {
+      "q": "What is a CTE (WITH clause) good for?",
+      "level": "advanced",
+      "options": [
+        "Storing data permanently",
+        "Naming a subquery so a complex query reads in steps",
+        "Creating indexes",
+        "Locking rows"
+      ],
+      "answer": 1,
+      "why": "It improves readability and allows recursion."
+    },
+    {
+      "q": "How do you walk a parent_id chain of unknown depth in SQL?",
+      "level": "advanced",
+      "options": [
+        "Many self-joins by hand",
+        "A recursive CTE",
+        "ORDER BY parent_id",
+        "GROUP BY id"
+      ],
+      "answer": 1,
+      "why": "WITH RECURSIVE follows parent to child (or back) until no rows remain."
+    },
+    {
+      "q": "What does EXPLAIN show?",
+      "level": "advanced",
+      "options": [
+        "Table comments",
+        "The query plan the database intends to use",
+        "Permissions",
+        "Row contents"
+      ],
+      "answer": 1,
+      "why": "EXPLAIN ANALYZE also runs the query and shows real timing."
+    },
+    {
+      "q": "Which database feature stops duplicate cms_id values from being inserted at all?",
+      "level": "advanced",
+      "options": [
+        "A view",
+        "A UNIQUE constraint",
+        "ORDER BY",
+        "A comment"
+      ],
+      "answer": 1,
+      "why": "Constraints enforce the rule at write time; checks only detect violations afterwards."
+    },
+    {
+      "q": "Your sync check reads the database one second after a webhook fires and sometimes finds old data. What is the most reliable fix?",
+      "level": "advanced",
+      "options": [
+        "Add a longer random sleep",
+        "Poll with a short interval and a timeout until the expected row appears",
+        "Run it twice and take the better result",
+        "Ignore failures"
+      ],
+      "answer": 1,
+      "why": "Sync is asynchronous, so wait on a condition, not on a fixed delay."
     }
   ]
 }

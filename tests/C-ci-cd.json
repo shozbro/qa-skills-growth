@@ -1,10 +1,15 @@
 {
   "skill": "C",
   "name": "CI/CD",
+  "learn": [
+    "https://docs.github.com/en/actions",
+    "https://playwright.dev/docs/ci-intro"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Where do GitHub Actions workflow files live?",
+      "level": "beginner",
       "options": [
         ".github/workflows/",
         "/ci/",
@@ -16,6 +21,7 @@
     },
     {
       "q": "Which trigger lets you start a workflow by hand from the Actions tab?",
+      "level": "beginner",
       "options": [
         "push",
         "workflow_dispatch",
@@ -27,6 +33,7 @@
     },
     {
       "q": "How should you provide an API token to a workflow?",
+      "level": "beginner",
       "options": [
         "Commit it in the YAML",
         "Store it as a repository secret and reference ${{ secrets.NAME }}",
@@ -38,6 +45,7 @@
     },
     {
       "q": "By default, how do jobs in one workflow run?",
+      "level": "intermediate",
       "options": [
         "Sequentially in file order",
         "In parallel, unless one declares needs:",
@@ -49,6 +57,7 @@
     },
     {
       "q": "What does runs-on select?",
+      "level": "beginner",
       "options": [
         "The branch to build",
         "The runner machine type, such as ubuntu-latest",
@@ -60,6 +69,7 @@
     },
     {
       "q": "Which action keeps a test report so you can download it after the run?",
+      "level": "intermediate",
       "options": [
         "actions/checkout",
         "actions/cache",
@@ -71,6 +81,7 @@
     },
     {
       "q": "Which trigger runs a workflow when a pull request is opened or updated?",
+      "level": "beginner",
       "options": [
         "on: pull_request",
         "on: fork",
@@ -82,6 +93,7 @@
     },
     {
       "q": "What do Playwright tests usually need on a fresh CI runner before they run?",
+      "level": "intermediate",
       "options": [
         "Nothing",
         "npx playwright install --with-deps to get browsers",
@@ -93,6 +105,7 @@
     },
     {
       "q": "How does a workflow step make the whole run fail?",
+      "level": "intermediate",
       "options": [
         "It prints FAILED",
         "It exits with a non-zero exit code",
@@ -104,6 +117,7 @@
     },
     {
       "q": "You want the report uploaded even when tests fail. What do you add to the upload step?",
+      "level": "intermediate",
       "options": [
         "if: always()",
         "continue: true",
@@ -112,6 +126,222 @@
       ],
       "answer": 0,
       "why": "if: always() runs the step regardless of earlier failures."
+    },
+    {
+      "q": "What does CI stand for?",
+      "level": "beginner",
+      "options": [
+        "Code Inspection",
+        "Continuous Integration",
+        "Central Infrastructure",
+        "Compile Immediately"
+      ],
+      "answer": 1,
+      "why": "Changes are merged and verified frequently by automation."
+    },
+    {
+      "q": "What is the difference between continuous delivery and continuous deployment?",
+      "level": "beginner",
+      "options": [
+        "None",
+        "Delivery keeps code releasable with a manual release step; deployment releases automatically",
+        "Deployment needs no tests",
+        "Delivery is only for mobile"
+      ],
+      "answer": 1,
+      "why": "Both automate the path; deployment removes the manual gate."
+    },
+    {
+      "q": "What is a pipeline?",
+      "level": "beginner",
+      "options": [
+        "A database",
+        "An automated sequence of stages such as build, test and deploy",
+        "A Git branch",
+        "A test framework"
+      ],
+      "answer": 1,
+      "why": "Each stage can gate the next."
+    },
+    {
+      "q": "What is a runner?",
+      "level": "beginner",
+      "options": [
+        "A test case",
+        "The machine that executes workflow jobs",
+        "A Git remote",
+        "A browser"
+      ],
+      "answer": 1,
+      "why": "GitHub-hosted or self-hosted."
+    },
+    {
+      "q": "Why does YAML indentation matter in a workflow file?",
+      "level": "beginner",
+      "options": [
+        "It does not",
+        "Indentation defines the structure; a wrong indent breaks or changes the workflow",
+        "Only for comments",
+        "Only on Windows"
+      ],
+      "answer": 1,
+      "why": "Use spaces, not tabs."
+    },
+    {
+      "q": "What does a matrix strategy do?",
+      "level": "intermediate",
+      "options": [
+        "Runs one job many times with different values such as browsers or versions",
+        "Makes the job faster by skipping tests",
+        "Encrypts secrets",
+        "Merges workflows"
+      ],
+      "answer": 0,
+      "why": "For example, test on three Node versions."
+    },
+    {
+      "q": "Why use actions/cache?",
+      "level": "intermediate",
+      "options": [
+        "To store secrets",
+        "To reuse downloaded dependencies between runs and save time",
+        "To deploy",
+        "To retry tests"
+      ],
+      "answer": 1,
+      "why": "Cache key choice controls when it is refreshed."
+    },
+    {
+      "q": "What is the difference between env and secrets in a workflow?",
+      "level": "intermediate",
+      "options": [
+        "None",
+        "env holds plain variables visible in the file; secrets are encrypted and masked in logs",
+        "Secrets are public",
+        "env is encrypted"
+      ],
+      "answer": 1,
+      "why": "Never put tokens in plain env values."
+    },
+    {
+      "q": "In a step, what is the difference between uses and run?",
+      "level": "intermediate",
+      "options": [
+        "None",
+        "uses runs a reusable action; run executes shell commands",
+        "run calls actions; uses runs shell",
+        "uses is for secrets"
+      ],
+      "answer": 1,
+      "why": "For example uses: actions/checkout versus run: npm test."
+    },
+    {
+      "q": "What does on: push: branches: [main] do?",
+      "level": "intermediate",
+      "options": [
+        "Triggers on pushes to any branch",
+        "Triggers only on pushes to main",
+        "Triggers on PRs",
+        "Disables the workflow"
+      ],
+      "answer": 1,
+      "why": "Branch filters limit when the workflow runs."
+    },
+    {
+      "q": "What does a reusable workflow need as its trigger?",
+      "level": "advanced",
+      "options": [
+        "on: schedule",
+        "on: workflow_call",
+        "on: pull_request",
+        "on: release"
+      ],
+      "answer": 1,
+      "why": "Other workflows call it with uses: ./.github/workflows/file.yml."
+    },
+    {
+      "q": "What does a concurrency group with cancel-in-progress do?",
+      "level": "advanced",
+      "options": [
+        "Runs more jobs",
+        "Cancels an older run in the same group when a new one starts",
+        "Encrypts logs",
+        "Retries failed jobs"
+      ],
+      "answer": 1,
+      "why": "It stops wasted runs on repeated pushes."
+    },
+    {
+      "q": "What do environments with required reviewers add?",
+      "level": "advanced",
+      "options": [
+        "Faster runners",
+        "A manual approval gate before a job that targets that environment",
+        "Free minutes",
+        "Test retries"
+      ],
+      "answer": 1,
+      "why": "Useful for deploys to shared environments."
+    },
+    {
+      "q": "What does Playwright's retries setting help with?",
+      "level": "advanced",
+      "options": [
+        "Making tests faster",
+        "Re-running failed tests, which also helps spot flaky ones",
+        "Skipping assertions",
+        "Parallel browsers"
+      ],
+      "answer": 1,
+      "why": "A test that passes on retry should be reported as flaky and fixed."
+    },
+    {
+      "q": "Why set permissions: for GITHUB_TOKEN in a workflow?",
+      "level": "advanced",
+      "options": [
+        "To speed up jobs",
+        "To grant only the access the workflow needs (least privilege)",
+        "To hide logs",
+        "To add runners"
+      ],
+      "answer": 1,
+      "why": "Smaller blast radius if a step is compromised."
+    },
+    {
+      "q": "Why pin a third-party action to a commit SHA instead of a tag?",
+      "level": "advanced",
+      "options": [
+        "Looks nicer",
+        "A tag can be moved to different code; a SHA is immutable",
+        "SHAs run faster",
+        "Tags are deprecated"
+      ],
+      "answer": 1,
+      "why": "It protects against a changed or compromised tag."
+    },
+    {
+      "q": "How can one job pass a value to a later job?",
+      "level": "advanced",
+      "options": [
+        "Global variables",
+        "Job outputs consumed through needs.<job>.outputs",
+        "The README",
+        "It cannot"
+      ],
+      "answer": 1,
+      "why": "Declare outputs on the job, read them via needs."
+    },
+    {
+      "q": "What does npx playwright test --shard=1/4 do?",
+      "level": "advanced",
+      "options": [
+        "Runs 1 test of 4",
+        "Runs the first quarter of the test suite so shards can run in parallel on separate machines",
+        "Retries 4 times",
+        "Uses 4 browsers"
+      ],
+      "answer": 1,
+      "why": "Sharding splits the suite across jobs to cut total time."
     }
   ]
 }

@@ -1,10 +1,15 @@
 {
   "skill": "A",
   "name": "Git and code reviews",
+  "learn": [
+    "https://git-scm.com/book/en/v2",
+    "https://google.github.io/eng-practices/review/"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "Which command replays your feature-branch commits on top of the latest main?",
+      "level": "beginner",
       "options": [
         "git merge main",
         "git rebase main",
@@ -16,6 +21,7 @@
     },
     {
       "q": "You hit conflicts during a rebase and fixed the files. What comes next?",
+      "level": "intermediate",
       "options": [
         "git commit --amend",
         "git rebase --abort",
@@ -27,6 +33,7 @@
     },
     {
       "q": "Undo the last commit but keep its changes staged. Which command?",
+      "level": "intermediate",
       "options": [
         "git reset --hard HEAD~1",
         "git reset --soft HEAD~1",
@@ -38,6 +45,7 @@
     },
     {
       "q": "You need one specific commit from another branch on your branch. Which command?",
+      "level": "beginner",
       "options": [
         "git cherry-pick <sha>",
         "git rebase <sha>",
@@ -49,6 +57,7 @@
     },
     {
       "q": "Why should you avoid rebasing and force-pushing a branch others already pulled?",
+      "level": "intermediate",
       "options": [
         "It deletes the remote repo",
         "It rewrites history their work is based on",
@@ -60,6 +69,7 @@
     },
     {
       "q": "What is the difference between git fetch and git pull?",
+      "level": "beginner",
       "options": [
         "No difference",
         "fetch downloads changes without merging; pull fetches then merges or rebases",
@@ -71,6 +81,7 @@
     },
     {
       "q": "Which is the safer way to force-push after a rebase?",
+      "level": "intermediate",
       "options": [
         "git push -f",
         "git push --force-with-lease",
@@ -82,6 +93,7 @@
     },
     {
       "q": "Which review comment is most useful on a test PR?",
+      "level": "intermediate",
       "options": [
         "Looks wrong",
         "Please fix this test",
@@ -93,6 +105,7 @@
     },
     {
       "q": "What does git stash do?",
+      "level": "beginner",
       "options": [
         "Deletes uncommitted changes",
         "Shelves uncommitted changes so you can switch branches cleanly",
@@ -104,6 +117,7 @@
     },
     {
       "q": "Why prefer git revert over git reset on a shared branch?",
+      "level": "intermediate",
       "options": [
         "revert is faster",
         "revert adds a new commit that undoes a change, so history is not rewritten",
@@ -112,6 +126,246 @@
       ],
       "answer": 1,
       "why": "Revert is safe for shared history."
+    },
+    {
+      "q": "What does git init do?",
+      "level": "beginner",
+      "options": [
+        "Downloads a remote repo",
+        "Creates a new empty repository in the current folder",
+        "Deletes history",
+        "Creates a branch called init"
+      ],
+      "answer": 1,
+      "why": "It creates the .git directory that tracks the project."
+    },
+    {
+      "q": "What does git status show?",
+      "level": "beginner",
+      "options": [
+        "Remote server health",
+        "Which files are modified, staged or untracked",
+        "Commit authors",
+        "The list of branches only"
+      ],
+      "answer": 1,
+      "why": "It summarises working tree and staging area."
+    },
+    {
+      "q": "What does git clone do?",
+      "level": "beginner",
+      "options": [
+        "Copies a remote repository to your machine, with history",
+        "Duplicates a branch locally only",
+        "Creates a fork on GitHub",
+        "Merges two repos"
+      ],
+      "answer": 0,
+      "why": "Clone fetches the full repo and sets origin."
+    },
+    {
+      "q": "What does git add do?",
+      "level": "beginner",
+      "options": [
+        "Commits changes",
+        "Stages changes for the next commit",
+        "Pushes to remote",
+        "Creates a new branch"
+      ],
+      "answer": 1,
+      "why": "Staging chooses what goes into the next commit."
+    },
+    {
+      "q": "What does git log --oneline show?",
+      "level": "beginner",
+      "options": [
+        "One file's contents",
+        "A compact list, one line per commit",
+        "Only the last commit",
+        "Uncommitted changes"
+      ],
+      "answer": 1,
+      "why": "Short hash plus the message for each commit."
+    },
+    {
+      "q": "What is .gitignore for?",
+      "level": "beginner",
+      "options": [
+        "Hides commits",
+        "Lists files and patterns Git should not track",
+        "Blocks pushes",
+        "Stores credentials"
+      ],
+      "answer": 1,
+      "why": "Use it for build output, node_modules, local env files."
+    },
+    {
+      "q": "How does the result of merge differ from rebase for a feature branch?",
+      "level": "intermediate",
+      "options": [
+        "No difference",
+        "Merge keeps both histories with a merge commit; rebase gives a linear history",
+        "Rebase keeps merge commits; merge is linear",
+        "Merge deletes the branch"
+      ],
+      "answer": 1,
+      "why": "They integrate the same changes but shape history differently."
+    },
+    {
+      "q": "What does git diff --staged show?",
+      "level": "intermediate",
+      "options": [
+        "Unstaged edits",
+        "Changes staged for the next commit compared with the last commit",
+        "Remote differences",
+        "Stashed changes"
+      ],
+      "answer": 1,
+      "why": "It is a preview of what the next commit will contain."
+    },
+    {
+      "q": "What does git commit --amend do?",
+      "level": "intermediate",
+      "options": [
+        "Adds a second commit",
+        "Replaces the last commit with a new one, with new content or message",
+        "Deletes the last commit and its changes",
+        "Pushes the commit"
+      ],
+      "answer": 1,
+      "why": "It rewrites the last commit, so avoid it once pushed and shared."
+    },
+    {
+      "q": "What is a fast-forward merge?",
+      "level": "intermediate",
+      "options": [
+        "A merge with conflicts",
+        "The branch pointer simply moves ahead because there is no divergent work",
+        "A merge that skips tests",
+        "A squash merge"
+      ],
+      "answer": 1,
+      "why": "No merge commit is needed when the target has not moved."
+    },
+    {
+      "q": "In a conflict, what sits between <<<<<<< HEAD and =======?",
+      "level": "intermediate",
+      "options": [
+        "The other branch's version",
+        "The version from your current branch",
+        "The common ancestor",
+        "A comment"
+      ],
+      "answer": 1,
+      "why": "Between ======= and >>>>>>> is the incoming change."
+    },
+    {
+      "q": "Which PR habit helps reviewers most?",
+      "level": "intermediate",
+      "options": [
+        "One large PR per month",
+        "Small focused PRs with a clear description",
+        "No description to save time",
+        "Mixing refactor and features"
+      ],
+      "answer": 1,
+      "why": "Small PRs get faster and better reviews."
+    },
+    {
+      "q": "You hard-reset and lost commits. Which command helps you find them?",
+      "level": "advanced",
+      "options": [
+        "git log",
+        "git reflog",
+        "git status",
+        "git blame"
+      ],
+      "answer": 1,
+      "why": "Reflog records where HEAD has been, so lost commits can be recovered."
+    },
+    {
+      "q": "In git rebase -i, which action melds a commit into the previous one and discards its message?",
+      "level": "advanced",
+      "options": [
+        "pick",
+        "reword",
+        "fixup",
+        "edit"
+      ],
+      "answer": 2,
+      "why": "fixup keeps the previous message; squash lets you combine messages."
+    },
+    {
+      "q": "What does git merge --no-ff do?",
+      "level": "advanced",
+      "options": [
+        "Forces a push",
+        "Creates a merge commit even when fast-forward is possible",
+        "Aborts on conflict",
+        "Skips hooks"
+      ],
+      "answer": 1,
+      "why": "It preserves the fact that a branch existed."
+    },
+    {
+      "q": "What is git worktree useful for?",
+      "level": "advanced",
+      "options": [
+        "Compressing the repo",
+        "Checking out several branches at once in separate folders from one repository",
+        "Deleting branches",
+        "Signing commits"
+      ],
+      "answer": 1,
+      "why": "It avoids stashing when switching context."
+    },
+    {
+      "q": "To revert a merge commit you must pass -m 1. Why?",
+      "level": "advanced",
+      "options": [
+        "To mark it urgent",
+        "To say which parent line is the mainline to keep",
+        "To skip hooks",
+        "To squash it"
+      ],
+      "answer": 1,
+      "why": "A merge has two parents, so Git needs to know which side to keep."
+    },
+    {
+      "q": "What does git pull --rebase do compared with a plain pull?",
+      "level": "advanced",
+      "options": [
+        "Nothing",
+        "Replays your local commits on top of the fetched ones instead of making a merge commit",
+        "Deletes local commits",
+        "Pushes after fetching"
+      ],
+      "answer": 1,
+      "why": "It keeps history linear when you pull."
+    },
+    {
+      "q": "When reviewing a new test, which check best shows it is meaningful?",
+      "level": "advanced",
+      "options": [
+        "It is long",
+        "Break the code under test on purpose and confirm the test fails",
+        "It has comments",
+        "It uses many mocks"
+      ],
+      "answer": 1,
+      "why": "A test that cannot fail proves nothing."
+    },
+    {
+      "q": "You committed while in a detached HEAD. How do you keep the work?",
+      "level": "advanced",
+      "options": [
+        "Nothing, it is safe",
+        "Create a branch there, for example git switch -c rescue",
+        "git gc",
+        "git clean -fd"
+      ],
+      "answer": 1,
+      "why": "Commits on a detached HEAD can be lost once you switch away."
     }
   ]
 }

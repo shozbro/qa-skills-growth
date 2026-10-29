@@ -1,10 +1,14 @@
 {
   "skill": "L3",
   "name": "Troubleshooting, debugging and RCA",
+  "learn": [
+    "https://git-scm.com/docs/git-bisect"
+  ],
   "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
   "questions": [
     {
       "q": "What is the first step when a defect is reported?",
+      "level": "beginner",
       "options": [
         "Fix the code",
         "Reproduce it reliably and note exact steps and environment",
@@ -16,6 +20,7 @@
     },
     {
       "q": "Browser shows an error. Where do you look to see whether the API failed?",
+      "level": "beginner",
       "options": [
         "Network tab status and response",
         "Elements tab",
@@ -27,6 +32,7 @@
     },
     {
       "q": "Which is a root cause rather than a symptom?",
+      "level": "intermediate",
       "options": [
         "The page shows 500",
         "The webhook handler skips records with a null Cms_Id",
@@ -38,6 +44,7 @@
     },
     {
       "q": "In the 5 Whys technique, you stop when:",
+      "level": "intermediate",
       "options": [
         "You have asked 5 questions",
         "You reach a cause you can fix or control",
@@ -49,6 +56,7 @@
     },
     {
       "q": "What does git bisect help with?",
+      "level": "intermediate",
       "options": [
         "Merging branches",
         "Finding the commit that introduced a regression",
@@ -57,6 +65,90 @@
       ],
       "answer": 1,
       "why": "It binary-searches history between a good and a bad commit."
+    },
+    {
+      "q": "What is the difference between severity and priority?",
+      "level": "beginner",
+      "options": [
+        "None",
+        "Severity is impact of the defect; priority is how soon it should be fixed",
+        "Severity is for developers only",
+        "Priority is for QA only"
+      ],
+      "answer": 1,
+      "why": "A cosmetic bug on a launch page can be low severity but high priority."
+    },
+    {
+      "q": "Which of these belongs in a good bug report?",
+      "level": "beginner",
+      "options": [
+        "Only a screenshot",
+        "Steps to reproduce, expected vs actual result, environment",
+        "The tester's opinion only",
+        "Nothing else needed"
+      ],
+      "answer": 1,
+      "why": "It lets someone else reproduce it."
+    },
+    {
+      "q": "An API call returns HTTP 500. What does that usually suggest?",
+      "level": "intermediate",
+      "options": [
+        "Client sent a bad request",
+        "An error on the server side",
+        "The page was not found",
+        "The user is not logged in"
+      ],
+      "answer": 1,
+      "why": "4xx points to the client; 5xx to the server."
+    },
+    {
+      "q": "What is a correlation or trace ID useful for?",
+      "level": "intermediate",
+      "options": [
+        "Styling",
+        "Following one request across services and logs",
+        "Encrypting data",
+        "Counting users"
+      ],
+      "answer": 1,
+      "why": "It ties together the logs for the same request."
+    },
+    {
+      "q": "A test fails only intermittently. What is the best first move?",
+      "level": "advanced",
+      "options": [
+        "Delete the test",
+        "Compare passing and failing runs (data, timing, environment, order) before changing code",
+        "Add random sleeps",
+        "Rerun until green"
+      ],
+      "answer": 1,
+      "why": "Find the difference, then fix the cause."
+    },
+    {
+      "q": "A bug disappears when you add logging. What does that hint at?",
+      "level": "advanced",
+      "options": [
+        "Logging fixes bugs",
+        "A timing or race condition",
+        "A CSS problem",
+        "A typo"
+      ],
+      "answer": 1,
+      "why": "Logging changes timing, hiding a race."
+    },
+    {
+      "q": "What is the point of a blameless RCA?",
+      "level": "advanced",
+      "options": [
+        "To find who to blame",
+        "To fix process and system causes without blaming individuals",
+        "To avoid writing anything down",
+        "To speed up deploys"
+      ],
+      "answer": 1,
+      "why": "People report honestly when blame is removed."
     }
   ]
 }
