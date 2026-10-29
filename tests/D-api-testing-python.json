@@ -1,0 +1,117 @@
+{
+  "skill": "D",
+  "name": "API testing automation and Python",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Which decorator defines a reusable pytest fixture?",
+      "options": [
+        "@pytest.setup",
+        "@pytest.fixture",
+        "@pytest.mark.fixture",
+        "@fixture.use"
+      ],
+      "answer": 1,
+      "why": "Fixtures are declared with @pytest.fixture."
+    },
+    {
+      "q": "Which decorator runs one test with many input sets?",
+      "options": [
+        "@pytest.mark.parametrize",
+        "@pytest.repeat",
+        "@pytest.each",
+        "@pytest.loop"
+      ],
+      "answer": 0,
+      "why": "parametrize generates one test per data set."
+    },
+    {
+      "q": "A good negative test for a protected endpoint is:",
+      "options": [
+        "Call it with a valid token and expect 200",
+        "Call it with no token and expect 401",
+        "Call it twice",
+        "Call it with a bigger payload"
+      ],
+      "answer": 1,
+      "why": "Negative tests check that invalid input is rejected correctly."
+    },
+    {
+      "q": "What is the difference between 401 and 403?",
+      "options": [
+        "None",
+        "401: not authenticated; 403: authenticated but not allowed",
+        "401: server error; 403: not found",
+        "403: not authenticated"
+      ],
+      "answer": 1,
+      "why": "401 means identify yourself; 403 means you are known but forbidden."
+    },
+    {
+      "q": "With the requests library, how do you read a JSON body?",
+      "options": [
+        "response.text.json",
+        "response.json()",
+        "response.body",
+        "json(response)"
+      ],
+      "answer": 1,
+      "why": "response.json() parses the body."
+    },
+    {
+      "q": "Which approach checks a response structure against a defined schema?",
+      "options": [
+        "Compare the raw string",
+        "jsonschema validate()",
+        "len(response)",
+        "Check only status code"
+      ],
+      "answer": 1,
+      "why": "Schema validation catches missing fields and wrong types."
+    },
+    {
+      "q": "What does a pytest fixture with scope=\"session\" do?",
+      "options": [
+        "Runs before every test",
+        "Is created once for the whole test run",
+        "Runs only on failure",
+        "Is created per file"
+      ],
+      "answer": 1,
+      "why": "Use session scope for expensive shared setup such as a login token."
+    },
+    {
+      "q": "Which status code normally means a resource was created?",
+      "options": [
+        "200",
+        "201",
+        "204",
+        "301"
+      ],
+      "answer": 1,
+      "why": "201 Created. 204 means success with no body."
+    },
+    {
+      "q": "Which HTTP method is NOT idempotent by default?",
+      "options": [
+        "GET",
+        "PUT",
+        "DELETE",
+        "POST"
+      ],
+      "answer": 3,
+      "why": "Repeating POST usually creates another resource."
+    },
+    {
+      "q": "What happens with def add(x, items=[]): items.append(x); return items?",
+      "options": [
+        "A fresh list on every call",
+        "The same list is reused across calls",
+        "SyntaxError",
+        "items is immutable"
+      ],
+      "answer": 1,
+      "why": "Default values are evaluated once. Use None and create the list inside."
+    }
+  ]
+}

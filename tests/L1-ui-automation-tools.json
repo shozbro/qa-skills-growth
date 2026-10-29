@@ -1,0 +1,62 @@
+{
+  "skill": "L1",
+  "name": "Playwright, Selenium, Cypress",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "What does Playwright's auto-waiting do?",
+      "options": [
+        "Waits a fixed 30 seconds",
+        "Waits for elements to be actionable before acting",
+        "Retries the whole test",
+        "Disables timeouts"
+      ],
+      "answer": 1,
+      "why": "Actions wait for visible, enabled, stable elements."
+    },
+    {
+      "q": "Which Playwright locator style is generally recommended first?",
+      "options": [
+        "Absolute XPath",
+        "getByRole / user-facing locators",
+        "nth-child CSS chains",
+        "Random ids"
+      ],
+      "answer": 1,
+      "why": "Role and text locators survive markup changes better."
+    },
+    {
+      "q": "In Selenium, which is better than time.sleep() for waiting?",
+      "options": [
+        "Longer sleeps",
+        "Explicit waits (WebDriverWait with expected conditions)",
+        "Refreshing the page",
+        "Implicit waits of 120 seconds"
+      ],
+      "answer": 1,
+      "why": "Explicit waits poll for a condition."
+    },
+    {
+      "q": "Which command records actions into Playwright test code?",
+      "options": [
+        "npx playwright record",
+        "npx playwright codegen",
+        "npx playwright generate",
+        "npx playwright script"
+      ],
+      "answer": 1,
+      "why": "codegen opens a recorder that outputs test code."
+    },
+    {
+      "q": "How does Playwright keep tests isolated from each other?",
+      "options": [
+        "Shared cookies",
+        "A new browser context per test",
+        "One browser tab for all",
+        "Manual cleanup only"
+      ],
+      "answer": 1,
+      "why": "Each test gets a fresh context, with its own storage."
+    }
+  ]
+}

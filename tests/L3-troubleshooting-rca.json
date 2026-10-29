@@ -1,0 +1,62 @@
+{
+  "skill": "L3",
+  "name": "Troubleshooting, debugging and RCA",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "What is the first step when a defect is reported?",
+      "options": [
+        "Fix the code",
+        "Reproduce it reliably and note exact steps and environment",
+        "Close it as cannot-reproduce",
+        "Ask for a retest next sprint"
+      ],
+      "answer": 1,
+      "why": "No reliable repro, no reliable diagnosis."
+    },
+    {
+      "q": "Browser shows an error. Where do you look to see whether the API failed?",
+      "options": [
+        "Network tab status and response",
+        "Elements tab",
+        "Lighthouse tab",
+        "Cookie settings"
+      ],
+      "answer": 0,
+      "why": "Network shows request, status code and payload."
+    },
+    {
+      "q": "Which is a root cause rather than a symptom?",
+      "options": [
+        "The page shows 500",
+        "The webhook handler skips records with a null Cms_Id",
+        "The test failed",
+        "Users complained"
+      ],
+      "answer": 1,
+      "why": "A root cause explains why the symptom occurs."
+    },
+    {
+      "q": "In the 5 Whys technique, you stop when:",
+      "options": [
+        "You have asked 5 questions",
+        "You reach a cause you can fix or control",
+        "You find a person to blame",
+        "The ticket is closed"
+      ],
+      "answer": 1,
+      "why": "The number five is a guide, not a rule."
+    },
+    {
+      "q": "What does git bisect help with?",
+      "options": [
+        "Merging branches",
+        "Finding the commit that introduced a regression",
+        "Squashing commits",
+        "Reviewing PRs"
+      ],
+      "answer": 1,
+      "why": "It binary-searches history between a good and a bad commit."
+    }
+  ]
+}

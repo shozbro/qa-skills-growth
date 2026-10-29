@@ -1,0 +1,62 @@
+{
+  "skill": "L6",
+  "name": "Penetration testing",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Which is on the OWASP Top 10 list?",
+      "options": [
+        "Broken Access Control",
+        "Slow page load",
+        "Typos",
+        "Large images"
+      ],
+      "answer": 0,
+      "why": "Broken Access Control is a long-standing top category."
+    },
+    {
+      "q": "What best prevents SQL injection?",
+      "options": [
+        "Hiding the form",
+        "Parameterized queries",
+        "Longer passwords",
+        "Client-side validation only"
+      ],
+      "answer": 1,
+      "why": "Parameters keep data separate from SQL code."
+    },
+    {
+      "q": "IDOR (insecure direct object reference) means:",
+      "options": [
+        "A user can access another user's object by changing an id",
+        "A slow query",
+        "A broken image",
+        "A weak colour contrast"
+      ],
+      "answer": 0,
+      "why": "Authorization is not checked per object."
+    },
+    {
+      "q": "Before running a ZAP active scan you must:",
+      "options": [
+        "Nothing",
+        "Have explicit permission and use an environment you are allowed to test",
+        "Disable logging",
+        "Run it on production"
+      ],
+      "answer": 1,
+      "why": "Unauthorized scanning can be illegal and can damage data."
+    },
+    {
+      "q": "What is OWASP ZAP primarily?",
+      "options": [
+        "A text editor",
+        "An intercepting proxy and web security scanner",
+        "A CI server",
+        "A database"
+      ],
+      "answer": 1,
+      "why": "It sits between browser and app to inspect and attack-test traffic."
+    }
+  ]
+}

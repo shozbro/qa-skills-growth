@@ -1,0 +1,117 @@
+{
+  "skill": "A",
+  "name": "Git and code reviews",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Which command replays your feature-branch commits on top of the latest main?",
+      "options": [
+        "git merge main",
+        "git rebase main",
+        "git cherry-pick main",
+        "git reset main"
+      ],
+      "answer": 1,
+      "why": "Rebase moves your commits onto the new base and keeps history linear; merge adds a merge commit."
+    },
+    {
+      "q": "You hit conflicts during a rebase and fixed the files. What comes next?",
+      "options": [
+        "git commit --amend",
+        "git rebase --abort",
+        "git add <files>, then git rebase --continue",
+        "git push --force"
+      ],
+      "answer": 2,
+      "why": "Stage the resolved files, then continue the rebase."
+    },
+    {
+      "q": "Undo the last commit but keep its changes staged. Which command?",
+      "options": [
+        "git reset --hard HEAD~1",
+        "git reset --soft HEAD~1",
+        "git revert HEAD",
+        "git checkout HEAD~1"
+      ],
+      "answer": 1,
+      "why": "--soft moves the branch back and leaves changes staged. --hard would discard them."
+    },
+    {
+      "q": "You need one specific commit from another branch on your branch. Which command?",
+      "options": [
+        "git cherry-pick <sha>",
+        "git rebase <sha>",
+        "git stash apply <sha>",
+        "git fetch <sha>"
+      ],
+      "answer": 0,
+      "why": "Cherry-pick applies a single commit as a new commit."
+    },
+    {
+      "q": "Why should you avoid rebasing and force-pushing a branch others already pulled?",
+      "options": [
+        "It deletes the remote repo",
+        "It rewrites history their work is based on",
+        "It disables CI",
+        "Git forbids it"
+      ],
+      "answer": 1,
+      "why": "Rewritten commits get new hashes, so teammates' copies diverge."
+    },
+    {
+      "q": "What is the difference between git fetch and git pull?",
+      "options": [
+        "No difference",
+        "fetch downloads changes without merging; pull fetches then merges or rebases",
+        "pull only works on main",
+        "fetch also pushes"
+      ],
+      "answer": 1,
+      "why": "git pull = git fetch + merge (or rebase)."
+    },
+    {
+      "q": "Which is the safer way to force-push after a rebase?",
+      "options": [
+        "git push -f",
+        "git push --force-with-lease",
+        "git push --mirror",
+        "git push --delete"
+      ],
+      "answer": 1,
+      "why": "--force-with-lease refuses to overwrite remote commits you have not seen."
+    },
+    {
+      "q": "Which review comment is most useful on a test PR?",
+      "options": [
+        "Looks wrong",
+        "Please fix this test",
+        "This test still passes if the API returns 500 because the status is never asserted. Assert 200 and check the body.",
+        "I would have written it differently"
+      ],
+      "answer": 2,
+      "why": "It names the problem, the risk and a concrete fix."
+    },
+    {
+      "q": "What does git stash do?",
+      "options": [
+        "Deletes uncommitted changes",
+        "Shelves uncommitted changes so you can switch branches cleanly",
+        "Pushes to a backup remote",
+        "Squashes commits"
+      ],
+      "answer": 1,
+      "why": "Stash saves working changes aside; git stash pop restores them."
+    },
+    {
+      "q": "Why prefer git revert over git reset on a shared branch?",
+      "options": [
+        "revert is faster",
+        "revert adds a new commit that undoes a change, so history is not rewritten",
+        "reset cannot undo commits",
+        "revert deletes the remote branch"
+      ],
+      "answer": 1,
+      "why": "Revert is safe for shared history."
+    }
+  ]
+}

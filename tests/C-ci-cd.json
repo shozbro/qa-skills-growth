@@ -1,0 +1,117 @@
+{
+  "skill": "C",
+  "name": "CI/CD",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Where do GitHub Actions workflow files live?",
+      "options": [
+        ".github/workflows/",
+        "/ci/",
+        "/.actions/",
+        "/workflows/ at any depth"
+      ],
+      "answer": 0,
+      "why": "They are YAML files in .github/workflows/."
+    },
+    {
+      "q": "Which trigger lets you start a workflow by hand from the Actions tab?",
+      "options": [
+        "push",
+        "workflow_dispatch",
+        "schedule",
+        "release"
+      ],
+      "answer": 1,
+      "why": "workflow_dispatch adds a Run workflow button."
+    },
+    {
+      "q": "How should you provide an API token to a workflow?",
+      "options": [
+        "Commit it in the YAML",
+        "Store it as a repository secret and reference ${{ secrets.NAME }}",
+        "Put it in the README",
+        "Pass it in the commit message"
+      ],
+      "answer": 1,
+      "why": "Secrets are encrypted and masked in logs."
+    },
+    {
+      "q": "By default, how do jobs in one workflow run?",
+      "options": [
+        "Sequentially in file order",
+        "In parallel, unless one declares needs:",
+        "Only one job is allowed",
+        "In random order, one at a time"
+      ],
+      "answer": 1,
+      "why": "Use needs: to order jobs."
+    },
+    {
+      "q": "What does runs-on select?",
+      "options": [
+        "The branch to build",
+        "The runner machine type, such as ubuntu-latest",
+        "The test framework",
+        "The timeout"
+      ],
+      "answer": 1,
+      "why": "It picks the runner image the job executes on."
+    },
+    {
+      "q": "Which action keeps a test report so you can download it after the run?",
+      "options": [
+        "actions/checkout",
+        "actions/cache",
+        "actions/upload-artifact",
+        "actions/setup-node"
+      ],
+      "answer": 2,
+      "why": "upload-artifact stores files from the run."
+    },
+    {
+      "q": "Which trigger runs a workflow when a pull request is opened or updated?",
+      "options": [
+        "on: pull_request",
+        "on: fork",
+        "on: gollum",
+        "on: status"
+      ],
+      "answer": 0,
+      "why": "pull_request fires for PR events."
+    },
+    {
+      "q": "What do Playwright tests usually need on a fresh CI runner before they run?",
+      "options": [
+        "Nothing",
+        "npx playwright install --with-deps to get browsers",
+        "A GUI desktop",
+        "A Docker daemon"
+      ],
+      "answer": 1,
+      "why": "CI images may lack the browsers and system libraries."
+    },
+    {
+      "q": "How does a workflow step make the whole run fail?",
+      "options": [
+        "It prints FAILED",
+        "It exits with a non-zero exit code",
+        "It writes a file named fail",
+        "It cannot"
+      ],
+      "answer": 1,
+      "why": "Test runners return non-zero on failure and that fails the step."
+    },
+    {
+      "q": "You want the report uploaded even when tests fail. What do you add to the upload step?",
+      "options": [
+        "if: always()",
+        "continue: true",
+        "skip: false",
+        "retry: 3"
+      ],
+      "answer": 0,
+      "why": "if: always() runs the step regardless of earlier failures."
+    }
+  ]
+}

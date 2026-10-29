@@ -1,0 +1,117 @@
+{
+  "skill": "B",
+  "name": "Database testing",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Which query finds duplicate cms_id values?",
+      "options": [
+        "SELECT cms_id FROM t WHERE COUNT(*) > 1",
+        "SELECT cms_id, COUNT(*) FROM t GROUP BY cms_id HAVING COUNT(*) > 1",
+        "SELECT DISTINCT cms_id FROM t",
+        "SELECT cms_id FROM t ORDER BY cms_id"
+      ],
+      "answer": 1,
+      "why": "Group, then filter groups with HAVING. Aggregates are not allowed in WHERE."
+    },
+    {
+      "q": "What is the difference between WHERE and HAVING?",
+      "options": [
+        "None",
+        "WHERE filters rows before grouping; HAVING filters groups after aggregation",
+        "HAVING is faster",
+        "WHERE only works with joins"
+      ],
+      "answer": 1,
+      "why": "Order of evaluation: WHERE, GROUP BY, HAVING."
+    },
+    {
+      "q": "Find child rows whose parent_id points to no existing parent. Which pattern?",
+      "options": [
+        "INNER JOIN parent ... WHERE p.id IS NOT NULL",
+        "LEFT JOIN parent p ON c.parent_id = p.id WHERE p.id IS NULL",
+        "CROSS JOIN parent",
+        "UNION parent"
+      ],
+      "answer": 1,
+      "why": "A LEFT JOIN keeps children with no match; the NULL parent id exposes orphans."
+    },
+    {
+      "q": "Which condition correctly finds rows where config is missing?",
+      "options": [
+        "config = NULL",
+        "config == NULL",
+        "config IS NULL",
+        "config = ''"
+      ],
+      "answer": 2,
+      "why": "Comparing with = NULL is never true. Use IS NULL."
+    },
+    {
+      "q": "What does COUNT(col) do differently from COUNT(*)?",
+      "options": [
+        "Nothing",
+        "COUNT(col) skips rows where col is NULL",
+        "COUNT(col) counts distinct values",
+        "COUNT(*) skips duplicates"
+      ],
+      "answer": 1,
+      "why": "COUNT(col) ignores NULLs; COUNT(*) counts every row."
+    },
+    {
+      "q": "What does an INNER JOIN return?",
+      "options": [
+        "All rows from the left table",
+        "Only rows with a match in both tables",
+        "All rows from both tables",
+        "Rows with no match"
+      ],
+      "answer": 1,
+      "why": "Unmatched rows on either side are dropped."
+    },
+    {
+      "q": "Why can NOT IN (subquery) return no rows when the subquery contains a NULL?",
+      "options": [
+        "It is a bug in the database",
+        "Comparisons with NULL are unknown, so no row can satisfy NOT IN",
+        "NOT IN ignores the subquery",
+        "It only happens with text columns"
+      ],
+      "answer": 1,
+      "why": "Use NOT EXISTS or filter NULLs out of the subquery."
+    },
+    {
+      "q": "Which expression numbers duplicates within each cms_id so you can pick the extra copies?",
+      "options": [
+        "RANK() OVER (ORDER BY id)",
+        "ROW_NUMBER() OVER (PARTITION BY cms_id ORDER BY id)",
+        "COUNT(*) OVER ()",
+        "NTILE(2)"
+      ],
+      "answer": 1,
+      "why": "ROW_NUMBER restarts per partition; rows numbered above 1 are duplicates."
+    },
+    {
+      "q": "For checks run against a shared test environment, what is the safest practice?",
+      "options": [
+        "Use an admin account for speed",
+        "Run SELECT-only queries, ideally with a read-only database user",
+        "Wrap checks in DELETE statements",
+        "Disable constraints first"
+      ],
+      "answer": 1,
+      "why": "Checks should observe, never modify, data other people rely on."
+    },
+    {
+      "q": "In PostgreSQL, which expression reads a JSON field as text so you can test it for NULL? (assumes PostgreSQL)",
+      "options": [
+        "settings->>'key' IS NULL",
+        "settings.key IS NULL",
+        "settings['key'] = NULL",
+        "JSON_NULL(settings)"
+      ],
+      "answer": 0,
+      "why": "->> returns text; ->  returns json. Confirm your actual database engine before using."
+    }
+  ]
+}

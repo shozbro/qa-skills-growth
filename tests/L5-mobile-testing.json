@@ -1,0 +1,62 @@
+{
+  "skill": "L5",
+  "name": "Mobile app testing and automation",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "Appium drives apps using which protocol style?",
+      "options": [
+        "WebDriver protocol",
+        "SOAP",
+        "GraphQL",
+        "FTP"
+      ],
+      "answer": 0,
+      "why": "Appium extends the WebDriver protocol to mobile."
+    },
+    {
+      "q": "Which Appium driver targets Android?",
+      "options": [
+        "XCUITest",
+        "UiAutomator2",
+        "Safari driver",
+        "Gecko"
+      ],
+      "answer": 1,
+      "why": "XCUITest is for iOS."
+    },
+    {
+      "q": "Which locator is usually most stable on mobile?",
+      "options": [
+        "Absolute XPath",
+        "Accessibility id",
+        "Screen coordinates",
+        "Index of the 7th view"
+      ],
+      "answer": 1,
+      "why": "Accessibility ids are explicit and cross-platform friendly."
+    },
+    {
+      "q": "Which scenario is specific to mobile testing?",
+      "options": [
+        "Browser zoom",
+        "Incoming call or notification during use",
+        "Mouse hover",
+        "Right click"
+      ],
+      "answer": 1,
+      "why": "Interruptions, permissions and background/foreground are mobile concerns."
+    },
+    {
+      "q": "Why test on real devices as well as emulators?",
+      "options": [
+        "Emulators are illegal",
+        "Real devices expose hardware, performance and OEM differences",
+        "Emulators cannot run apps",
+        "It is cheaper"
+      ],
+      "answer": 1,
+      "why": "Emulators miss some real-world behaviour."
+    }
+  ]
+}

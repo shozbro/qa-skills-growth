@@ -1,0 +1,62 @@
+{
+  "skill": "L4",
+  "name": "Performance testing",
+  "note": "Questions authored by Claude as practice material. Not sourced from your own notes or any official exam. Verify anything you doubt against the docs.",
+  "questions": [
+    {
+      "q": "What does p95 response time mean?",
+      "options": [
+        "The average time",
+        "95% of requests were at or below this time",
+        "The slowest request",
+        "95 requests per second"
+      ],
+      "answer": 1,
+      "why": "It is a percentile, not an average."
+    },
+    {
+      "q": "Load testing vs stress testing:",
+      "options": [
+        "Same thing",
+        "Load: expected traffic; stress: beyond capacity to find the breaking point",
+        "Load: one user; stress: two users",
+        "Stress: only on mobile"
+      ],
+      "answer": 1,
+      "why": "They answer different questions."
+    },
+    {
+      "q": "Throughput measures:",
+      "options": [
+        "Time per request",
+        "Requests handled per unit time",
+        "Memory use",
+        "Error text"
+      ],
+      "answer": 1,
+      "why": "Latency is time per request; throughput is volume per time."
+    },
+    {
+      "q": "In k6, how do you make a run fail automatically when p95 is too slow?",
+      "options": [
+        "Add thresholds in options",
+        "Watch the console",
+        "Use sleep()",
+        "Lower the VUs"
+      ],
+      "answer": 0,
+      "why": "Thresholds define pass/fail criteria."
+    },
+    {
+      "q": "Why record a baseline before changes?",
+      "options": [
+        "To satisfy a template",
+        "So later results can be compared against a known reference",
+        "To reduce the load",
+        "Baselines are optional and unused"
+      ],
+      "answer": 1,
+      "why": "Without a baseline you cannot tell if performance regressed."
+    }
+  ]
+}
