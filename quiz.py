@@ -3,6 +3,7 @@
 
   python quiz.py A            5 random questions from Track A
   python quiz.py A -n 8       8 random questions
+  python quiz.py A --level beginner      only beginner / intermediate / advanced
   python quiz.py --final      one random set from every multiple choice skill
   python quiz.py --list       show available skills
 Add --seed N to repeat the same draw. Results are appended to results.csv.
@@ -23,10 +24,14 @@ def banks():
     return out
 
 
-def ask(skill, bank, n, rng):
-    qs = rng.sample(bank["questions"], min(n, len(bank["questions"])))
+def ask(skill, bank, n, rng, level):
+    pool = [q for q in bank["questions"] if level == "mixed" or q.get("level") == level]
+    if not pool:
+        print(f"\n{skill}: no {level} questions")
+        return 0, 0, "SKIP"
+    qs = rng.sample(pool, min(n, len(pool)))
     right, missed = 0, []
-    print(f"\n=== {skill}: {bank['name']} ({len(qs)} questions) ===")
+    print(f"\n=== {skill}: {bank['name']} ({len(qs)} questions, {level}) ===")
     for i, q in enumerate(qs, 1):
         order = list(range(len(q["options"])))
         rng.shuffle(order)
@@ -73,21 +78,24 @@ def main():
     p.add_argument("-n", type=int, default=5)
     p.add_argument("--final", action="store_true")
     p.add_argument("--list", action="store_true")
+    p.add_argument("--level", choices=["beginner", "intermediate", "advanced", "mixed"], default="mixed")
     p.add_argument("--seed", type=int)
     a = p.parse_args()
     b = banks()
     rng = random.Random(a.seed)
     if a.list or (not a.skill and not a.final):
         for k, d in b.items():
-            print(f"{k:3} {d['name']} ({len(d['questions'])} questions)")
+            c = {l: sum(1 for q in d["questions"] if q.get("level") == l) for l in ("beginner", "intermediate", "advanced")}
+            print(f"{k:3} {d['name']}: {len(d['questions'])} questions (beginner {c['beginner']}, intermediate {c['intermediate']}, advanced {c['advanced']})")
         print("L2, L7, L8: see tests/practical.md")
         return
     keys = list(b) if a.final else [a.skill.upper()]
     for k in keys:
         if k not in b:
             sys.exit(f"Unknown skill {k}. Use --list.")
-        r, t, v = ask(k, b[k], a.n, rng)
-        log(k, r, t, v)
+        r, t, v = ask(k, b[k], a.n, rng, a.level)
+        if t:
+            log(k + ("" if a.level == "mixed" else "-" + a.level), r, t, v)
 
 
 if __name__ == "__main__":

@@ -36,11 +36,11 @@ Tick boxes as you go and commit. The QA Skills Tracker page stays the main view;
 
 ## Later skills
 
-- [ ] L1 Playwright, Selenium, Cypress 3 -> 4 (by 2027-01-15)
-- [ ] L2 Test estimations 2 -> 4 (by 2027-01-31)
-- [ ] L3 Troubleshooting, debugging and RCA 2 and 3 -> 4 (by 2027-03-31)
-- [ ] L4 Performance testing 2 -> 4 (by 2027-04-30)
-- [ ] L5 Mobile app testing 3 -> 4 and automation 1 -> 3 (by 2027-06-30)
-- [ ] L6 Penetration testing 1 -> 3 (by 2027-06-30)
-- [ ] L7 Leadership 2 -> 4 (by 2027-06-30)
-- [ ] L8 Problem solving, creativity, curiosity, innovation 2 and 3 -> 4 (by 2027-06-30)
+- [ ] L1 Playwright, Selenium, Cypress 3 -> 4 (by 2027-02-26)
+- [ ] L3 Troubleshooting, debugging and RCA 2 and 3 -> 4 (by 2027-03-05)
+- [ ] L4 Performance testing 2 -> 3 (by 2027-03-15)
+- [ ] L2 Test estimations 2 -> 3 (by 2027-03-15)
+- [ ] L5 Mobile app testing and automation (parked) (no deadline)
+- [ ] L6 Penetration testing (parked) (no deadline)
+- [ ] L7 Leadership (ongoing, no deadline) (no deadline)
+- [ ] L8 Problem solving, creativity, curiosity, innovation (ongoing, no deadline) (no deadline)
